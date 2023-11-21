@@ -8,7 +8,11 @@ import java.util.List;
 
 public interface ArticleRepository extends JpaRepository<Article, Long> {
 
-    @Query("SELECT a FROM Article a WHERE LOWER(a.name) LIKE LOWER(CONCAT('%', :searchTerm, '%'))")
+    @Query("SELECT a FROM Article a WHERE " +
+            "LOWER(a.name) LIKE LOWER(CONCAT('% ', :searchTerm, ' %')) OR " +
+            "LOWER(a.name) LIKE LOWER(CONCAT(:searchTerm, ' %')) OR " +
+            "LOWER(a.name) LIKE LOWER(CONCAT('% ', :searchTerm)) OR " +
+            "LOWER(a.name) = LOWER(:searchTerm)")
     List<Article> findByArticleNameContainingIgnoreCase(String searchTerm);
 
 }

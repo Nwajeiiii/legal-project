@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class LegalDocumentImplService implements LegalDocumentService {
+public class LegalDocumentServiceImpl implements LegalDocumentService {
 
     private final LegalDocumentRepository legalDocumentRepository;
 

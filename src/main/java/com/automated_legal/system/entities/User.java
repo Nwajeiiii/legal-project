@@ -1,12 +1,10 @@
 package com.automated_legal.system.entities;
 
-import com.automated_legal.system.models.UserPasswordHashing;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.Date;
 
 @Entity
 @Table(name = "users")
@@ -20,7 +18,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "full_name", nullable = false, length = 24)
+    @Column(name = "full_name", nullable = false, length = 24, unique = true)
     private String fullName;
 
     @Column(name = "user_email", nullable = false, length = 24, unique = true)

@@ -1,9 +1,6 @@
 package com.automated_legal.system.controllers;
 
-import com.automated_legal.system.models.LoginRequest;
-import com.automated_legal.system.models.LoginResponse;
-import com.automated_legal.system.models.SignupRequest;
-import com.automated_legal.system.models.SignupResponse;
+import com.automated_legal.system.models.*;
 import com.automated_legal.system.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +23,12 @@ public class UserController {
     @PostMapping("/login")
     public LoginResponse login (@RequestBody LoginRequest loginRequest) {
         return this.userService.loginUser(loginRequest);
+    }
+
+    @CrossOrigin
+    @PatchMapping("/change-password")
+    public PasswordChangeResponse changeUserPassword (@RequestBody PasswordChangeRequest request) {
+        return this.userService.changeUserPassword(request);
     }
 
 }

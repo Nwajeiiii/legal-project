@@ -75,7 +75,32 @@ public class UserServiceImpl implements UserService{
         return response;
     }
 
+    @Override
+    public PasswordChangeResponse changeUserPassword(PasswordChangeRequest request) {
+        PasswordChangeResponse response = new PasswordChangeResponse();
+        User user = this.userRepository.findByEmail(request.getEmail());
 
+        if (user == null){
+            response.setResponseCode("999");
+            response.setResponseMessage("000");
+            return response;
+        }
+
+        user.setPassword(request.getPassword());
+
+        try {
+            this.userRepository.save(user);
+        } catch (Exception e) {
+            response.setResponseCode("999");
+            response.setResponseMessage(e.getMessage());
+            return response;
+        }
+
+        response.setResponseCode("000");
+        response.setResponseMessage("successful");
+        return response;
+
+    }
 
 
 }

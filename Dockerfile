@@ -38,6 +38,7 @@
 #ENTRYPOINT ["java", "-jar", "/app.jar"]
 #EXPOSE 8080
 
+
 # syntax=docker/dockerfile:1
 
 FROM eclipse-temurin:17-jdk-jammy

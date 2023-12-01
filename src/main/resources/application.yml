@@ -9,11 +9,25 @@
 #spring.datasource.driver-class-name=org.postgresql.Driver
 #spring.jpa.properties.hibernate.format_sql=true
 
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/legal
+#    username: postgres
+#    password: serg44.IO
+#    driver-class-name: org.postgresql.Driver
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+#    properties:
+#      hibernate:
+#        format_sql: true
+
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/legal
-    username: postgres
-    password: serg44.IO
+    url: jdbc:postgresql://dpg-clkvtkcjtl8s73f49gcg-a.oregon-postgres.render.com:5432/legal_15an
+    username: legal_15an_user
+    password: EhD0T4I471poPjzg9NNkf5mZT8iPwWEQ
     driver-class-name: org.postgresql.Driver
   jpa:
     show-sql: true

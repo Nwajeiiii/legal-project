@@ -14,7 +14,7 @@ EXPOSE 8080
 ARG JAR_FILE=target/system-0.0.1-SNAPSHOT.jar
 
 # Add the application's jar to the container
-ADD ${JAR_FILE} my-spring-boot-app.jar
+ADD ${JAR_FILE} system-0.0.1-SNAPSHOT.jar
 
 # Run the jar file
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/my-spring-boot-app.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/system-0.0.1-SNAPSHOT.jar"]
